@@ -1,20 +1,57 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { NavigationContainer } from '@react-navigation/native';
+import { Ionicons } from '@expo/vector-icons';
+import HomePage from './screens/HomePage';
+import ProfilePage from './screens/ProfilPage';
+import LoginPage from './screens/LoginPage';
+import RegisterPage from './screens/RegisterPage';
 
-export default function App() {
+const Tab = createBottomTabNavigator();
+
+const App = () => {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Tab.Navigator>
+        <Tab.Screen 
+          name="Accueil" 
+          component={HomePage}
+          options={{
+            tabBarIcon: ({ color, size }) => (
+              <Ionicons name="ios-home" size={size} color={color} />
+            ),
+          }} 
+        />
+        <Tab.Screen 
+          name="Profil" 
+          component={ProfilePage}
+          options={{
+            tabBarIcon: ({ color, size }) => (
+              <Ionicons name="ios-person" size={size} color={color} />
+            ),
+          }} 
+        />
+        <Tab.Screen 
+          name="Connexion" 
+          component={LoginPage}
+          options={{
+            tabBarIcon: ({ color, size }) => (
+              <Ionicons name="ios-log-in" size={size} color={color} />
+            ),
+          }} 
+        />
+        <Tab.Screen 
+          name="Inscription" 
+          component={RegisterPage}
+          options={{
+            tabBarIcon: ({ color, size }) => (
+              <Ionicons name="ios-create" size={size} color={color} />
+            ),
+          }} 
+        />
+      </Tab.Navigator>
+    </NavigationContainer>
   );
-}
+};
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App;
