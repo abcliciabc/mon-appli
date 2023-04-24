@@ -1,8 +1,5 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
-import ProfilePage from './ProfilPage';
-import LoginPage from './LoginPage';
-import RegisterPage from './RegisterPage';
 
 const logoUrl = './../assets/logo1.png';
 
